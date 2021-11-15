@@ -1,0 +1,1 @@
+All steps done except domain. All files (screens), index.html and my_photo.jpg are located in DevOps_online_Kyiv_2021Q4/m2/task2.1/
