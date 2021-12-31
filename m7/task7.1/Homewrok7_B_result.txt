@@ -1,0 +1,55 @@
+zkaster@zkaster:~$ sudo ./my_script2 apache_log
+Begin
+1. From which ip were the most requests?
+     62 157.55.39.250
+2. What is the most requested page?
+    102 www.bing.com/bingbot.htm)"
+3. How many requests were there from each ip?
+      4 157.55.39.174
+      2 157.55.39.182
+     62 157.55.39.250
+      7 176.59.119.104
+     10 178.76.227.154
+      1 185.53.44.186
+     34 207.46.13.48
+      1 213.87.151.38
+      1 217.69.134.11
+      1 217.69.134.12
+      1 217.69.134.13
+      1 217.69.134.15
+      2 217.69.134.29
+      1 217.69.134.39
+      3 37.140.141.30
+     61 46.29.2.62
+      1 5.255.253.45
+      1 5.255.253.74
+      1 66.249.69.39
+      2 66.249.78.58
+      1 66.249.78.65
+      1 66.249.78.72
+      1 93.158.178.129
+      1 95.108.158.190
+4. What non-existent pages were clients referred to?
+      3 /error404
+      2 /kovboyskie
+5. What time did site get the most requests?
+      5 [30/Sep/2015:02:26:55
+      5 [30/Sep/2015:02:26:53
+      5 [30/Sep/2015:02:26:52
+      5 [30/Sep/2015:02:26:51
+      5 [30/Sep/2015:02:26:24
+      5 [30/Sep/2015:02:26:23
+      5 [30/Sep/2015:02:25:54
+      5 [30/Sep/2015:02:25:53
+      5 [30/Sep/2015:02:25:52
+      5 [30/Sep/2015:02:25:50
+6. What search bots have accessed the site? (UA + IP)
+     62 IP :: 157.55.39.250 BOT :: bingbot/2.0;
+     33 IP :: 207.46.13.48 BOT :: bingbot/2.0;
+      3 IP :: 157.55.39.174 BOT :: bingbot/2.0;
+      1 IP :: 66.249.78.65 BOT :: Googlebot/2.1;
+      1 IP :: 66.249.78.58 BOT :: Googlebot/2.1;
+      1 IP :: 66.249.69.39 BOT :: Googlebot/2.1;
+      1 IP :: 157.55.39.182 BOT :: bingbot/2.0;
+End
+zkaster@zkaster:~$

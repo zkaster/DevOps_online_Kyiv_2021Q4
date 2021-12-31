@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#-ready----function 1 ------
+function fun1 () {
+ echo "1. From which ip were the most requests? "
+ cat apache_log | awk '{print $1}' | sort -n | uniq -c | sort -nr | head -1
+}
+
+#-ready----function 2 -----
+function fun2 () {
+ echo "2. What is the most requested page? "
+ cat apache_log | awk -F"http://" '{print $NF}' | sort -n | uniq -c | sort -nr | head -1
+}
+
+#-ready-------function 3-----------
+function fun3 () {
+ echo "3. How many requests were there from each ip?"
+ less $1 | cut -d' ' -f1 | sort | uniq -c
+}
+
+#-ready------ function 4 -----
+function fun4 () {
+ echo "4. What non-existent pages were clients referred to?"
+ grep "404" $1 | awk  '{print $7}' | sort -n | uniq -c | sort -nr
+}
+
+#-ready-------function 5 ------
+function fun5 () {
+ echo "5. What time did site get the most requests?"
+ cat apache_log | awk '{print $4}' | sort -n | uniq -c | sort -nr | head -10
+}
+
+#-ready------function 6 ----
+function fun6 () {
+ echo "6. What search bots have accessed the site? (UA + IP)"
+ rm time_file
+ touch time_file
+
+ cat $1 | while read line
+do
+  array=($line)
+  if [[ "${array[13]}" == *"bot"* ]];
+  then
+   echo "IP :: "${array[0]}" BOT :: "${array[13]} >> time_file
+  fi
+done
+
+ cat time_file | sort -n| uniq -c | sort -nr
+}
+
+if [[ "$#" == "0" ]]
+then
+ echo  "First param - name of the apache_log file"
+ exit
+fi
+ echo "Begin"
+ logname=$1
+ fun1 $logname
+ fun2 $logname
+ fun3 $logname
+ fun4 $logname
+ fun5 $logname
+ fun6 $logname
+echo "End"
+exit
+

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#--------function 1-----------
+function ping_name () {
+if [ " ping -c 1 $1 " ]
+then
+ echo "Host $1 is up -- "
+ host $1 | sed -e 's/.*pointer //g'
+else
+ echo " Host $1 is down "
+fi
+}
+
+#--------function 2-----------
+function port_scan(){
+echo "port is opened:"
+ss -ant | sort -k 4
+}
+
+if [[ "$#" == "0" ]]
+then
+ echo "Use key --all to display all active hosts"
+ echo "Use key --target to display open port"
+fi
+
+case $1 in
+--all )
+
+ for ((i=9;i<14;i++))
+ do
+  IP_HOST="172.20.20.$i"
+  ping_name $IP_HOST
+ done
+;;
+--target )
+port_scan
+;;
+
+esac
+
+
+exit
