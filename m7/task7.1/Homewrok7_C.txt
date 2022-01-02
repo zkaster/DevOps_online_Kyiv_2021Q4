@@ -1,0 +1,27 @@
+#!/bin/bash
+# First param is Path to the syncing  directory
+# Second param is The path to the directory where the copies of the files will be stored
+ # In case of adding new or deleting old files, the script must add a corresponding entry to the log file indicating the time, type of operation and file name.
+# Script must be adde to the cron.
+#--------function 1-----------
+function func1 () {
+
+echo "Test"
+}
+rm time_file
+touch time_file
+
+diff -qr $1 $2 >> time_file
+
+cat time_file | while read line
+do
+  array=($line)
+  if [[ "${array[0]}" == *"Files"* ]];
+  then
+   logger -s  "FILES" ${array[1]}" AND "${array[2]}" ARE DIFFERENT"
+  fi
+  if [[ "${array[0]}" == *"Only"* ]];
+  then
+   logger -s "FILE "${array[3]}" EXIST ONLI IN DIR: "${array[2]}
+  fi
+done

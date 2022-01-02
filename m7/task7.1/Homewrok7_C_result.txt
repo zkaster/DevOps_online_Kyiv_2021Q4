@@ -1,0 +1,31 @@
+
+>> to see result without cron
+cat /var/log/syslog
+
+Jan  2 21:35:02 zkaster zkaster: FILES dir1/file1ANDandDIFFERENT
+Jan  2 21:35:02 zkaster zkaster: FILE file3 EXIST ONLI IN DIR: dir1:
+Jan  2 21:35:02 zkaster zkaster: FILE file4 EXIST ONLI IN DIR: dir1:
+Jan  2 21:35:02 zkaster zkaster: FILE file5 EXIST ONLI IN DIR: dir2:
+Jan  2 21:35:02 zkaster zkaster: FILE file6 EXIST ONLI IN DIR: dir2:
+Jan  2 21:35:52 zkaster zkaster: FILES dir1/file1ANDandDIFFERENT
+Jan  2 21:35:52 zkaster zkaster: FILE file3 EXIST ONLI IN DIR: dir1:
+Jan  2 21:35:52 zkaster zkaster: FILE file4 EXIST ONLI IN DIR: dir1:
+Jan  2 21:35:52 zkaster zkaster: FILE file5 EXIST ONLI IN DIR: dir2:
+Jan  2 21:35:52 zkaster zkaster: FILE file6 EXIST ONLI IN DIR: dir2:
+Jan  2 21:36:17 zkaster zkaster: FILES dir1/file1 AND and ARE DIFFERENT
+Jan  2 21:36:17 zkaster zkaster: FILE file3 EXIST ONLI IN DIR: dir1:
+Jan  2 21:36:17 zkaster zkaster: FILE file4 EXIST ONLI IN DIR: dir1:
+Jan  2 21:36:17 zkaster zkaster: FILE file5 EXIST ONLI IN DIR: dir2:
+Jan  2 21:36:17 zkaster zkaster: FILE file6 EXIST ONLI IN DIR: dir2:
+
+sudo crontab -e
+>>insert this line
+*/1 * * * * root /home/zkaster/my_script3 dir1 dir2
+
+>>check syslog
+
+Jan  2 21:46:01 zkaster zkaster: FILES dir1/file1 AND and ARE DIFFERENT
+Jan  2 21:46:01 zkaster zkaster: FILE file3 EXIST ONLI IN DIR: dir1:
+Jan  2 21:46:01 zkaster zkaster: FILE file4 EXIST ONLI IN DIR: dir1:
+Jan  2 21:46:01 zkaster zkaster: FILE file5 EXIST ONLI IN DIR: dir2:
+Jan  2 21:46:01 zkaster zkaster: FILE file6 EXIST ONLI IN DIR: dir2:
