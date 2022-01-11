@@ -1,7 +1,7 @@
 # Exit codes
-ALLOK=100
-ERRPARAM=-10
-DSMALLERZERO=-20
+ALL_OK=100
+ERR_PARAM=-10
+D_SMALLER_ZERO=-20
 
 # ----------------
 def validate_param(param):
@@ -45,7 +45,7 @@ if __name__ == '__main__':
             break
         cnt+=1
     if validate_param(a)==False:
-        exit(ERRPARAM)
+        exit(ERR_PARAM)
     a = int(a)
 # ---------check B -------
     b = input('Input b: ')
@@ -57,7 +57,7 @@ if __name__ == '__main__':
             break
         cnt += 1
     if validate_param(b) == False:
-        exit(ERRPARAM)
+        exit(ERR_PARAM)
     b = int(b)
 # ---------check C -------
     c = input('Input c: ')
@@ -69,9 +69,11 @@ if __name__ == '__main__':
             break
         cnt += 1
     if validate_param(c) == False:
-        exit(ERRPARAM)
+        exit(ERR_PARAM)
     c = int(c)
 # ------------------------
     if solv_square(a, b, c)==False:
-        exit(DSMALLERZERO)
-    exit(ALLOK)
+        exit(D_SMALLER_ZERO)
+    exit(ALL_OK)
+
+
