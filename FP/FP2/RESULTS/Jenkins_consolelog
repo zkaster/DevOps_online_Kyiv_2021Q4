@@ -1,0 +1,43 @@
+Started by GitHub push by zkaster
+Running as SYSTEM
+[EnvInject] - Loading node environment variables.
+Building in workspace /var/jenkins_home/workspace/DeploytoAWS
+The recommended git tool is: NONE
+using credential rsa-key-20220130
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/DeploytoAWS/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url git@github.com:zkaster/DevOpsFP2.git # timeout=10
+Fetching upstream changes from git@github.com:zkaster/DevOpsFP2.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_SSH to set credentials 
+ > git fetch --tags --force --progress -- git@github.com:zkaster/DevOpsFP2.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 0702f9d7c49401957ce2a807633140a11e9ae853 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 0702f9d7c49401957ce2a807633140a11e9ae853 # timeout=10
+Commit message: "Update index.php"
+First time build. Skipping changelog.
+AWSEB Deployment Plugin Version 0.3.21 (aws-java-sdk version: 1.12.148)
+Using region: &#039;us-east-2&#039;
+Zipping contents of Root File Object (DeploytoAWS) into tmp file awseb-17675373320789799048.zip (includes=, excludes=)
+Using archive &#039;/tmp/awseb-17675373320789799048.zip&#039;
+bucketName not set. Calling createStorageLocation
+Using s3 Bucket &#039;elasticbeanstalk-us-east-2-828882199600&#039;
+Uploading file awseb-17675373320789799048.zip as s3://elasticbeanstalk-us-east-2-828882199600/fp2Jenkins-JenkinsNew.zip
+Creating application version JenkinsNew for application fp2Jenkins for path s3://elasticbeanstalk-us-east-2-828882199600/fp2Jenkins-JenkinsNew.zip
+Created version: JenkinsNew
+Using environmentId &#039;e-pzp6egwmde&#039;
+No pending Environment Updates. Proceeding.
+Checking health/status of environmentId e-pzp6egwmde attempt 1/30
+Environment Status is &#039;Ready&#039;. Moving on.
+Updating environmentId &#039;e-pzp6egwmde&#039; with Version Label set to &#039;JenkinsNew&#039;
+Checking health/status of environmentId e-pzp6egwmde attempt 1/30
+Versions reported: (current: Sample Application-2, underDeployment: JenkinsNew). Should I move on? false
+Checking health/status of environmentId e-pzp6egwmde attempt 2/30
+Versions reported: (current: JenkinsNew, underDeployment: JenkinsNew). Should I move on? false
+Environment Status is &#039;Ready&#039; and Health is &#039;Green&#039;. Moving on.
+Deployment marked as &#039;successful&#039;. Starting post-deployment cleanup.
+VersionLabels are matching for environmentId:&#039;e-pzp6egwmde&#039; and version:&#039;JenkinsNew&#039;)
+Cleaning up temporary file /tmp/awseb-17675373320789799048.zip
+Finished: SUCCESS
